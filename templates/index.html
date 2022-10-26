@@ -8,12 +8,12 @@
 </head>
 <style>
     .text-white{
-        color:white
+        color:black
     }
 </style>
-<body style="background-color:black">
+<body style="background-color:white">
 
-    <nav class="navbar" style="background-color:#00a65a">
+    <nav class="navbar" style="background-color:black;">
         <a class="navbar-brand">My Book recommender</a>
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-white" style="font-size:50px">Top 50 Books</h1>
+                <h1 class="text-white" style="font-size:50px">Top Trending 50</h1>
             </div>
 
             {% for i in range(book_name|length) %}
