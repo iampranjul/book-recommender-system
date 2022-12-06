@@ -23,11 +23,24 @@ def index():
 def recommend_ui():
     return render_template('recommend.html')
 
+@app.route('/about')
+def index_ui():
+    return render_template('about.html')
+
+@app.route('/index')
+def Dash():
+    return render_template('index.html',
+                           book_name = list(popular_df['Book-Title'].values),
+                           author=list(popular_df['Book-Author'].values),
+                           image=list(popular_df['Image-URL-M'].values),
+                           votes=list(popular_df['num_ratings'].values),
+                           rating=list(popular_df['avg_rating'].values))
+
 @app.route('/recommend_books',methods=['post'])
 def recommend():
     user_input = request.form.get('user_input')
     index = np.where(pt.index == user_input)[0][0]
-    similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[0:6]
+    similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[0:8]
 
     data = []
     for i in similar_items:

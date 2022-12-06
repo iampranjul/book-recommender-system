@@ -4,39 +4,155 @@
     <meta charset="UTF-8">
     <title>Book Recommender System</title>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <style>
     .text-white{
         color:black
     }
-</style>
-<body style="background-color:white">
+    * {
 
-    <nav class="navbar" style="background-color:black;">
-        <a class="navbar-brand">My Book recommender</a>
-        <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/recommend">Recommend</a></li>
-            <li><a>Contact</a></li>
+margin: 0px;
+
+padding: 0px;
+
+box-sizing: border-box;
+
+}
+
+.body-text {
+
+display: flex;
+
+font-family: "Montserrat", sans-serif;
+
+align-items: center;
+
+justify-content: center;
+
+margin-top: 250px;
+
+}
+
+nav {
+
+display: flex;
+
+justify-content: space-around;
+
+align-items: center;
+
+min-height: 8vh;
+
+background-color: rgb(255, 255, 255);
+
+font-family: "Montserrat", sans-serif;
+
+}
+
+.heading {
+
+color: black;
+
+text-transform: uppercase;
+
+letter-spacing: 5px;
+
+font-size: 20px;
+
+}
+
+.nav-links {
+
+display: flex;
+
+justify-content: space-around;
+
+width: 30%;
+
+}
+
+.nav-links li {
+
+list-style: none;
+
+}
+
+.nav-links a {
+
+color: black;
+
+text-decoration: none;
+
+letter-spacing: 3px;
+
+font-weight: bold;
+
+font-size: 14px;
+
+padding: 14px 16px;
+text-transform: uppercase;
+
+}
+
+.nav-links a:hover:not(.active) {
+
+background-color: rgb(92, 148, 252);
+
+}
+
+.nav-links li a.active {
+
+background-color: rgb(0, 164, 240);
+
+}
+</style>
+
+<body style="background-color:white; background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(131, 191, 226) 40%, rgb(14, 53, 160)  95% );
+height: 1100px;">
+
+    <nav>
+
+        <div class="heading">
+  
+         <b> <h4>Book Recommendation System</h4></b>
+  
+        </div>
+  
+        <ul class="nav-links">
+  
+          <li><a class="active" href="/index">Dashboard</a></li>
+  
+          <li><a href="/recommend">Recommend</a></li>
+  
+          <li><a href="/about">About Us </a></li>
+  
         </ul>
-    </nav>
+  
+      </nav>
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="background-color: black;border-radius: 1%;width: 120%; margin-left: -10%;margin-top: 5%;">
             <div class="col-md-12">
-                <h1 class="text-white" style="font-size:50px">Top Trending 50</h1>
+                <h1 class="text-white" style="font-size:50px;background-color: rgb(31, 97, 126); color:white;text-align: center;margin-left: 25%;margin-right: 25%;margin-top: 5%; font-size: 60px;width: 100%px;
+                height: 100px;
+                padding: 15px;
+                border-radius: 5%;
+                font-family:Elephant">Top Trending 50</h1>
+                
             </div>
 
             {% for i in range(book_name|length) %}
-                <div class="col-md-3" style="margin-top:50px">
+                <div class="col-md-3" style="margin-top:50px; border: 20px; border-color: black;">
                     <div class="card">
-                        <div class="card-body">
-                            <img class="card-img-top" src="{{ image[i] }}">
-                            <p class="text-white">{{ book_name[i] }}</p>
-                            <h4 class="text-white">{{ author[i] }}</h4>
-                            <h4 class="text-white">Votes - {{ votes[i] }}</h4>
-                            <h4 class="text-white">Rating - {{ rating[i] }}</h4>
+                        
+
+                        <div class="card-body" style="background-color:white;border-radius: 15%;margin-top: 10%;margin-left: 10%;margin-right:10%;border-width: 5px;" >
+                            <img class="card-img-top" style="margin-top: 4%;margin-left: 25%; border-radius: 6%;"  src="{{ image[i] }}">
+                           <b> <p class="text-white" style="margin-left:3%; color:black;padding-left: 4%;padding-right: 4%;text-align: center;font-family:Batang">{{ book_name[i] }}</p></b>
+                            <h4 class="text-white" style="margin-left:3%; color:black;padding-left: 4%;padding-right: 4%;text-align: center;font-family:Batang">{{ author[i] }}</h4>
+                            <h4 class="text-white" style="margin-left:3%; color:black;padding-left: 4%;padding-right: 4%;text-align: center;font-family:Batang">Votes - {{ votes[i] }}</h4>
+                            <h4 class="text-white" style="margin-left:3%; color:black;padding-left: 4%;padding-right: 4%;text-align: center;font-family:Batang">Rating - {{ rating[i] }}</h4>
                         </div>
                     </div>
                 </div>
